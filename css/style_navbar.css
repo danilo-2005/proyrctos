@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.etiquetas {
+    width: 100%;
+    margin: 0px 0;
+    padding: 0;
+}
+
+.navbar {
+    font-family: Arial, sans-serif;
+    border-right: 0px solid #502a7b;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: white;
+    width: 200px;
+    /* Ancho inicial para mostrar expandido */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.4s ease, padding 0.4s ease;
+    /* Transición suave */
+}
+
+.navbar.collapsed {
+    font-family: Arial, sans-serif;
+    width: 60px;
+    /* Ancho reducido cuando está colapsada */
+    padding-top: 10px;
+    /* Reducimos el padding para colapsar de forma suave */
+}
+
+.navbar ul {
+    font-family: Arial, sans-serif;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.navbar li {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 2px 0;
+    padding: 0;
+}
+
+.navbar a {
+    border-radius: 10px;
+    color: #502a7b;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s, padding 0.3s;
+}
+
+.navbar a i {
+    font-size: 20px;
+    /* Tamaño del ícono */
+    transition: font-size 0.3s ease;
+    /* Ajustamos el ícono con la transición */
+}
+
+.navbar a span {
+    display: inline;
+    font-family: Arial, sans-serif;
+    transition: opacity 0.4s ease;
+    /* Transición suave para el texto */
+}
+
+.navbar.collapsed a span {
+    opacity: 0;
+    /* Hacemos desaparecer el texto suavemente */
+}
+
+.navbar.collapsed a {
+    padding: 12px 10px;
+    /* Reducimos padding para alinearse con el diseño */
+}
+
+.navbar.collapsed a i {
+    font-size: 18px;
+    /* Reducimos el tamaño del ícono cuando está colapsado */
+}
+
+.navbar a:hover {
+    background-color: #f3effd;
+    color: #502a7b;
+    border-radius: 10px;
+}
+
+.navbar li:last-child {
+    margin-top: auto;
+    /* Empujar el último elemento hacia abajo */
+}
+
+
+/* Al pasar el mouse sobre la barra */
+
+.navbar:hover {
+    width: 200px;
+    /* Expande la barra */
+    padding-top: 20px;
+    /* Restauramos el padding original */
+}
+
+.navbar:hover a span {
+    opacity: 1;
+    /* Mostramos el texto cuando la barra está expandida */
+}
+
+.navbar:hover a i {
+    font-size: 20px;
+    /* Restauramos el tamaño original del ícono */
+}
+
+
+/* Reducir al máximo el espacio entre los elementos de la sublista */
+
+.sublist li {
+    margin: 0;
+    /* Eliminar cualquier margen entre los elementos de la sublista */
+}
+
+
+/* Reducir el margen entre los ítems en la barra de navegación */
+
+.navbar li {
+    margin: 0;
+    /* Eliminar cualquier margen entre los elementos de la barra de navegación */
+}
+
+
+/* Reducir aún más el padding de los enlaces */
+
+.navbar a {
+    padding: 6px 16px;
+    /* Reducir un poco el padding para que los ítems estén más juntos */
+}
+
+
+/* Ajustar los íconos si es necesario */
+
+.navbar a i {
+    font-size: 18px;
+}
+
+
+/* Ajustar el espacio entre el ícono y el texto si es necesario */
+
+.navbar a span {
+    margin-left: 5px;
+    /* Ajustar el espacio entre el ícono y el texto */
+}
