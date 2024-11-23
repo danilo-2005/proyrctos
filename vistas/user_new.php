@@ -5,6 +5,10 @@
         border-radius:15px;
         
     }
+    .container {
+    margin-left: 100px; /* Mueve el contenido hacia la derecha para evitar que lo cubra la barra */
+    padding: 20px; /* Opcional: Espaciado interno para mayor separación */
+}
 </style>
 <body>
     <div class="container">
@@ -34,6 +38,18 @@
             </div>
             <div class="column">
                 <div class="control">
+                    <label style="font-family: 'Poppins';">Estado</label>
+                    <br>
+                    <div class="select style="width: 100%; font-family: 'Poppins'; max-width: 400px;">
+                        <select style="font-family:'Poppins';" name="usuario_estado" required >
+                            <option style="font-family:'Poppins';" value="ACTIVO">ACTIVO</option>
+                            <option style="font-family:'Poppins';" value="INACTIVO">INACTIVO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="control">
                     <label style="font-family: 'Poppins';">Rol</label>
                     <br>
                     <div class="select style="width: 100%; font-family: 'Poppins'; max-width: 400px;">
@@ -54,25 +70,18 @@
             </div>
             <div class="column">
                 <div class="control">
-                    <label style="font-family: 'Poppins';">Email</label>
-                    <input style="font-family: 'Poppins';"class="input" type="email" name="usuario_email" maxlength="70" >
-                </div>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <div class="control">
                     <label style="font-family: 'Poppins';">Clave</label>
                     <input style="font-family: 'Poppins';"class="input" type="password" name="usuario_clave_1" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required >
                 </div>
             </div>
             <div class="column">
                 <div class="control">
-                    <label style="font-family: 'Poppins';">Repetir clave</label>
+                    <label style="font-family: 'Poppins';">Repetir Clave</label>
                     <input style="font-family: 'Poppins';"class="input" type="password" name="usuario_clave_2" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required >
                 </div>
             </div>
         </div>
+       
         <div class="columns">
             
         </div>

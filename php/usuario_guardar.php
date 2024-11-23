@@ -10,14 +10,14 @@ error_reporting(E_ALL);
     $rol=limpiar_cadena($_POST['usuario_rol']);
 
     $usuario=limpiar_cadena($_POST['usuario_usuario']);
-    $email=limpiar_cadena($_POST['usuario_email']);
+    $estado=limpiar_cadena($_POST['usuario_estado']);
 
     $clave_1=limpiar_cadena($_POST['usuario_clave_1']);
     $clave_2=limpiar_cadena($_POST['usuario_clave_2']);
 
 
     /*== Verificando campos obligatorios ==*/
-    if($nombre=="" || $apellido=="" || $usuario=="" || $clave_1=="" || $clave_2=="" || $rol==""){
+    if($nombre=="" || $apellido=="" || $usuario=="" || $clave_1=="" || $clave_2=="" || $rol==""|| $estado==""){
         echo '
             <div class="notification is-danger is-light">
                 <strong>¡Ocurrio un error inesperado!</strong><br>
@@ -70,36 +70,10 @@ error_reporting(E_ALL);
     }
 
 
-    /*== Verificando email ==*/
-    if($email!=""){
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $check_email=conexion();
-            $check_email=$check_email->query("SELECT usuario_email FROM usuario WHERE usuario_email='$email'");
-            if($check_email->rowCount()>0){
-                echo '
-                    <div class="notification is-danger is-light">
-                        <strong>¡Ocurrio un error inesperado!</strong><br>
-                        El correo electrónico ingresado ya se encuentra registrado, por favor elija otro
-                    </div>
-                ';
-                exit();
-            }
-            $check_email=null;
-        }else{
-            echo '
-                <div class="notification is-danger is-light">
-                    <strong>¡Ocurrio un error inesperado!</strong><br>
-                    Ha ingresado un correo electrónico no valido
-                </div>
-            ';
-            exit();
-        } 
-    }
-
 
     /*== Verificando usuario ==*/
     $check_usuario=conexion();
-    $check_usuario=$check_usuario->query("SELECT usuario_usuario FROM usuario WHERE usuario_usuario='$usuario'");
+    $check_usuario=$check_usuario->query("SELECT USUARIO_USUARIO FROM tb_usuarios WHERE USUARIO_USUARIO='$usuario'");
     if($check_usuario->rowCount()>0){
         echo '
             <div class="notification is-danger is-light">
@@ -128,15 +102,15 @@ error_reporting(E_ALL);
 
     /*== Guardando datos ==*/
     $guardar_usuario=conexion();
-    $guardar_usuario=$guardar_usuario->prepare("INSERT INTO usuario(usuario_nombre,usuario_apellido,usuario_rol,usuario_usuario,usuario_clave,usuario_email) VALUES(:nombre,:apellido,:rol,:usuario,:clave,:email)");
+    $guardar_usuario=$guardar_usuario->prepare("INSERT INTO tb_usuarios(USUARIO_NOMBRES,USUARIO_APELLIDOS,USUARIO_ROL,USUARIO_ESTADO,USUARIO_USUARIO,USUARIO_CONTRASENA) VALUES(:nombre,:apellido,:rol,:estado,:usuario,:clave)");
 
     $marcadores=[
         ":nombre"=>$nombre,
         ":apellido"=>$apellido,
          ":rol"=>$rol,
+         ":estado"=>$estado,
         ":usuario"=>$usuario,
-        ":clave"=>$clave,
-        ":email"=>$email
+        ":clave"=>$clave
     ];
 
     $guardar_usuario->execute($marcadores);

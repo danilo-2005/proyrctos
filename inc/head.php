@@ -4,7 +4,7 @@
     <title>San Agustín | SGC</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/libro.png" type="image/png">
+    <link rel="shortcut icon" href="img/shortcut-naranaja.jpg" type="image/png">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">

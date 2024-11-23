@@ -3,7 +3,7 @@
 
 # Conexion a la base de datos #
 function conexion(){
-    $pdo = new PDO('mysql:host=localhost;dbname=biblioteca', 'root', '');
+    $pdo = new PDO('mysql:host=srv1598.hstgr.io;dbname=u239335834_ENCUESTA', 'u239335834_SUPERADMIN', 'EncuestasA2025');
     return $pdo;
 }
 

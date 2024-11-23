@@ -1,4 +1,18 @@
-<div class="container is-fluid mb-6">
+<style>
+    .form{
+        background-color:white;
+        padding:40px;
+        border-radius:15px;
+        
+    }
+    .container {
+    margin-left: 100px; /* Mueve el contenido hacia la derecha para evitar que lo cubra la barra */
+    padding: 20px; /* Opcional: Espaciado interno para mayor separación */
+}
+</style>
+<body>
+    <div class="container">
+    <div class="container is-fluid mb-6">
     <h1 class="title">Usuarios</h1>
     <h2 class="subtitle">Lista de usuarios</h2>
 </div>
@@ -30,3 +44,5 @@
         require_once "./php/usuario_lista.php";
     ?>
 </div>
+</div>
+    </div>

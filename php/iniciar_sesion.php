@@ -40,17 +40,17 @@ if (verificar_datos("[a-zA-Z0-9$@.-]{7,100}", $clave)) {
 }
 
 $check_user = conexion();
-$check_user = $check_user->query("SELECT * FROM tb_usuarios WHERE USUARIO_USUARIO='$usuario'");
+$check_user = $check_user->query("SELECT * FROM usuario WHERE usuario_usuario='$usuario'");
 if ($check_user->rowCount() == 1) {
 
     $check_user = $check_user->fetch();
-    if ($check_user['USUARIO_USUARIO'] == $usuario && $check_user['USUARIO_CONTRASENA']==$clave) {
+    if ($check_user['usuario_usuario'] == $usuario && $check_user['usuario_clave']==$clave) {
 
-        $_SESSION['id'] = $check_user['USUARIO_ID'];
-        $_SESSION['nombre'] = $check_user['USUARIO_NOMBRES'];
-        $_SESSION['apellido'] = $check_user['USUARIO_APELLIDOS'];
-        $_SESSION['rol'] = $check_user['USUARIO_ROL'];
-        $_SESSION['usuario'] = $check_user['USUARIO_USUARIO'];
+        $_SESSION['id'] = $check_user['usuario_id'];
+        $_SESSION['nombre'] = $check_user['usuario_nombre'];
+        $_SESSION['apellido'] = $check_user['usuario_apellido'];
+        $_SESSION['rol'] = $check_user['usuario_rol'];
+        $_SESSION['usuario'] = $check_user['usuario_usuario'];
 
         echo '
             <div class="notification is-info is-light">

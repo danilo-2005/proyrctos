@@ -1,155 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Estilos generales del cuerpo */
-        body {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
-
-        .container-principal {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .container-principal img {
-            max-width: 120px;
-            margin-bottom: 20px;
-        }
-
-        h5 {
-            color: #6a11cb;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .container1, .container2 {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        label.label {
-            font-weight: bold;
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 8px;
-            display: block;
-            text-align: left;
-        }
-
-        .container1 input, .container2 input {
-            width: 100%;
-            padding: 12px 40px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 14px;
-            color: #555;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            height: 40px;
-            line-height: 1.5;
-        }
-
-        .container1 input:focus, .container2 input:focus {
-            border-color: #6a11cb;
-            box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
-            background-color: #f9f9ff;
-        }
-
-        .container1 i, .container2 i {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 15px;
-            color: #888;
-            font-size: 16px;
-            pointer-events: none;
-        }
-
-        #togglePassword {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #888;
-            font-size: 16px;
-        }
-
-        .btn-inciar {
-            background-color: #6a11cb;
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-            padding: 12px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .btn-inciar:hover {
-            background-color: #4b0c94;
-            box-shadow: 0 4px 10px rgba(75, 12, 148, 0.3);
-        }
-
-        .btn-inciar:focus {
-            outline: none;
-        }
-
-        .btn-inciar i {
-            margin-right: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style_login.css">
 </head>
 <body>
-<div class="container-principal">
+<div class="main-container">
     <form class="box login" action="" method="POST" autocomplete="off" onsubmit="convertToUppercase()">
         <div>
-            <center><img src="./img/libro.png" alt="Log"></center>
+            <center><img src="img/logo-naranja.jpg" alt=""></center>
         </div>
-        <h5>Biblioteca</h5>
+        <br>
+        <h5 class="title is-5 has-text-centered is-uppercase">Sistema de Gestión de Calidad</h5>
 
-        <div class="container1">
+        <div class="field input-container">
             <label class="label">Usuario</label>
-            <input type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required>
-
+            <div class="control">
+                <div class="input-container">
+                    <input class="input input-uppercase" type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required>
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
         </div>
 
-        <div class="container2">
+        <div class="field input-container">
             <label class="label">Clave</label>
-            <input type="password" id="login_clave" name="login_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+            <div class="control">
+                <div class="input-container">
+                    <input class="input input-password" type="password" id="login_clave" name="login_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required>
+                    <i class="fas fa-key"></i>
+                    <i id="togglePassword" class="fas fa-eye"></i>
+                </div>
+            </div>
         </div>
 
-        <button type="submit" class="btn-inciar">
-            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
-        </button>
+        <p class="has-text-centered mb-4 mt-3">
+            <button type="submit" class="login-button">
+                <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+            </button>
+        </p>
 
         <?php
-        if (isset($_POST['login_usuario']) && isset($_POST['login_clave'])) {
-            require_once "./php/main.php";
-            require_once "./php/iniciar_sesion.php";
-        }
+            if (isset($_POST['login_usuario']) && isset($_POST['login_clave'])) {
+                require_once "./php/main.php";
+                require_once "./php/iniciar_sesion.php";
+            }
         ?>
     </form>
 </div>
@@ -169,3 +61,4 @@
 </script>
 </body>
 </html>
+S
